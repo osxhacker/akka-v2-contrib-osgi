@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<parent>
+		<groupId>com.tubros</groupId>
+		<artifactId>akka</artifactId>
+		<version>2.0.1</version>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.tubros.akka.build</groupId>
+	<artifactId>provision</artifactId>
+
+	<name>akka - imported bundles</name>
+
+	<packaging>pom</packaging>
+
+	<dependencies>
+		<!-- Scala -->
+		<dependency>
+			<groupId>org.apache.servicemix.bundles</groupId>
+			<artifactId>org.apache.servicemix.bundles.scala-library</artifactId>
+			<version>2.9.1_3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.ops4j.pax.logging</groupId>
+			<artifactId>pax-logging-api</artifactId>
+			<version>1.6.5</version>
+		</dependency>
+	</dependencies>
+</project>

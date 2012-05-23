@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<parent>
+		<relativePath>../poms/wrappers/</relativePath>
+		<groupId>com.tubros.akka.build</groupId>
+		<artifactId>wrapper-bundle-settings</artifactId>
+		<version>2.0.1</version>
+	</parent>
+
+	<properties>
+		<bundle.symbolicName>com.typesafe.akka.remote</bundle.symbolicName>
+		<wrapped.groupId>com.typesafe.akka</wrapped.groupId>
+		<wrapped.artifactId>akka-remote</wrapped.artifactId>
+		<wrapped.version>2.0.1</wrapped.version>
+	</properties>
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.tubros.akka</groupId>
+	<artifactId>com.typesafe.akka.remote</artifactId>
+	<version>2.0.1</version>
+
+	<name>${bundle.symbolicName} ${wrapped.version} [osgi]</name>
+
+	<packaging>bundle</packaging>
+
+	<dependencies>
+		<dependency>
+			<groupId>${wrapped.groupId}</groupId>
+			<artifactId>${wrapped.artifactId}</artifactId>
+			<version>${wrapped.version}</version>
+			<optional>true</optional>
+			<exclusions>
+				<exclusion>
+					<groupId>org.scala-lang</groupId>
+					<artifactId>scala-library</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.typesafe.akka</groupId>
+					<artifactId>akka-actor</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.protobuf</groupId>
+			<artifactId>protobuf-java</artifactId>
+			<version>${protobuf-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty</artifactId>
+			<version>${netty-version}</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>net.debasishg</groupId>
+			<artifactId>sjson_2.9.1</artifactId>
+			<version>${sjson-version}</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>net.databinder</groupId>
+			<artifactId>dispatch-json_2.9.1</artifactId>
+			<version>${dispatch-json-version}</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>${httpclient-version}</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore</artifactId>
+			<version>${httpclient-version}</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>${commons-codec-version}</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${commons-io-version}</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.objenesis</groupId>
+			<artifactId>objenesis</artifactId>
+			<version>${objenesis-version}</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>voldemort.store.compress</groupId>
+			<artifactId>h2-lzf</artifactId>
+			<version>${voldemort-version}</version>
+			<scope>runtime</scope>
+		</dependency>
+	</dependencies>
+</project>

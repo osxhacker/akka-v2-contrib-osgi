@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<features>
+	<repository>mvn:org.apache.karaf.assemblies.features/standard/${karaf-version}/xml/features</repository>
+	<repository>mvn:org.apache.karaf.assemblies.features/enterprise/${karaf-version}/xml/features</repository>
+	<repository>mvn:org.apache.camel.karaf/apache-camel/${camel-version}/xml/features</repository>
+
+	<feature name='scala' version='${scala-version}' resolver='(obr)'>
+		<bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.scala-library/${scala-bundle-version}</bundle>
+	</feature>
+
+	<feature name='akka' version='${akka-version}' resolver='(obr)'>
+		<feature>http</feature>
+		<feature version='${scala-version}'>scala</feature>
+
+		<bundle>mvn:com.tubros.akka/com.typesafe.akka.actor/${akka-version}</bundle>
+		<bundle>mvn:com.tubros.akka/com.typesafe.akka.kernel/${akka-version}</bundle>
+		<bundle>mvn:com.tubros.akka/com.typesafe.akka.remote/${akka-version}</bundle>
+		<bundle>mvn:com.tubros.akka/com.typesafe.akka.slf4j/${akka-version}</bundle>
+
+	</feature>
+
+	<feature name='akka-example' version='${akka-version}' resolver='(obr)'>
+		<feature version='${akka-version}'>akka</feature>
+		<bundle>mvn:com.tubros.akka/example/${akka-version}</bundle>
+	</feature>
+</features>
