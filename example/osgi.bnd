@@ -16,6 +16,8 @@ Import-Package: \
 	akka.japi;version="[2.0,2.1)", \
 	akka.jsr166y;version="[2.0,2.1)", \
 	akka.pattern;version="[2.0,2.1)", \
+	akka.remote;version="[2.0,2.1)", \
+	akka.remote.netty;version="[2.0,2.1)", \
 	akka.routing;version="[2.0,2.1)", \
 	akka.serialization;version="[2.0,2.1)", \
 	akka.util;version="[2.0,2.1)", \
@@ -23,6 +25,7 @@ Import-Package: \
 	akka.util.duration;version="[2.0,2.1)", \
 	com.eaio.util.lang;version="[2.0,2.1)", \
 	com.eaio.uuid;version="[2.0,2.1)", \
+	com.google.protobuf;version="[2.0,2.1)", \
 	com.typesafe.config;version="[2.0,2.1)", \
 	com.typesafe.config.impl;version="[2.0,2.1)", \
 	org.jboss.netty.akka.util;version="[2.0,2.1)", \

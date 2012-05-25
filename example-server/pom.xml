@@ -86,18 +86,16 @@
 							<artifactItems>
 								<artifactItem>
 									<groupId>com.tubros.akka</groupId>
-									<artifactId>com.typesafe.akka.actor</artifactId>
+									<artifactId>com.typesafe.akka.remote</artifactId>
 									<version>${akka-version}</version>
 									<type>jar</type>
 									<overWrite>false</overWrite>
-									<outputDirectory>${project.build.directory}/generated-resources</outputDirectory>
-									<includes>*.conf</includes>
+									<outputDirectory>
+										${project.build.directory}/generated-resources
+									</outputDirectory>
+									<includes>akka/*/*.conf</includes>
 								</artifactItem>
 							</artifactItems>
-							<includes>*.conf</includes>
-							<outputDirectory>${project.build.directory}/jars</outputDirectory>
-							<overWriteReleases>false</overWriteReleases>
-							<overWriteSnapshots>true</overWriteSnapshots>
 						</configuration>
 					</execution>
 				</executions>

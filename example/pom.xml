@@ -59,10 +59,46 @@
 	</dependencies>
 
 	<build>
+		<resources>
+			<resource>
+				<directory>${basedir}/src/main/resources</directory>
+			</resource>
+			<resource>
+				<directory>${project.build.directory}/generated-resources</directory>
+			</resource>
+		</resources>
+
 		<plugins>
 			<plugin>
 				<groupId>org.scala-tools</groupId>
 				<artifactId>maven-scala-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>unpack</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>com.tubros.akka</groupId>
+									<artifactId>com.typesafe.akka.remote</artifactId>
+									<version>${akka-version}</version>
+									<type>jar</type>
+									<overWrite>false</overWrite>
+									<outputDirectory>
+										${project.build.directory}/generated-resources
+									</outputDirectory>
+									<includes>akka/*/*.conf</includes>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

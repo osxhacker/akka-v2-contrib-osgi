@@ -11,18 +11,28 @@ Embed-Dependency: *;scope=compile|runtime;type=!pom;inline=true
 Require-Bundle: org.apache.servicemix.bundles.scala-library
 
 Export-Package: \
-	akka.remote;version="${akka-version}", \
-	akka.remote.netty;version="${akka-version}", \
-	akka.routing;version="${akka-version}", \
-	akka.serialization;version="${akka-version}"
-
-Import-Package: \
-	akka.remote;version="${akka-version}", \
-	akka.remote.netty;version="${akka-version}", \
-	akka.routing;version="${akka-version}", \
-	akka.serialization;version="${akka-version}", \
-	akka.event.slf4j;version="${akka-version}";resolution:=optional, \
-	javax.servlet;version="${servlet-version}", \
-	javax.servlet.http;version="${servlet-version}", \
+	akka;version="${akka-version}";provide:=true, \
+	akka.actor;version="${akka-version}";provide:=true, \
+	akka.config;version="${akka-version}";provide:=true, \
+	akka.dispatch;version="${akka-version}";provide:=true, \
+	akka.event;version="${akka-version}";provide:=true, \
+	akka.event.japi;version="${akka-version}";provide:=true, \
+	akka.japi;version="${akka-version}";provide:=true, \
+	akka.jsr166y;version="${akka-version}";provide:=true, \
+	akka.pattern;version="${akka-version}";provide:=true, \
+	akka.routing;version="${akka-version}";provide:=true, \
+	akka.remote;version="${akka-version}";provide:=true, \
+	akka.remote.netty;version="${akka-version}";provide:=true, \
+	akka.serialization;version="${akka-version}";provide:=true, \
+	akka.util;version="${akka-version}";provide:=true, \
+	akka.util.cps;version="${akka-version}";provide:=true, \
+	akka.util.duration;version="${akka-version}";provide:=true, \
+	com.eaio.util.lang;version="${akka-version}";provide:=true, \
+	com.eaio.uuid;version="${akka-version}";provide:=true, \
+	com.google.protobuf;version="${akka-version}";provide:=true, \
+	com.typesafe.config;version="${akka-version}";provide:=true, \
+	com.typesafe.config.impl;version="${akka-version}";provide:=true, \
 	org.jboss.logging;resolution:=optional, \
-	*
+	org.jboss.netty.akka.util;version="${akka-version}";provide:=true, \
+	org.jboss.netty.akka.util.internal;version="${akka-version}";provide:=true
+

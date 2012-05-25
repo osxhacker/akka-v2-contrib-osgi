@@ -43,6 +43,11 @@
 		</dependency>
 
 		<dependency>
+			<groupId>${wrapped.groupId}</groupId>
+			<artifactId>akka-actor</artifactId>
+			<version>${wrapped.version}</version>
+		</dependency>
+		<dependency>
 			<groupId>com.google.protobuf</groupId>
 			<artifactId>protobuf-java</artifactId>
 			<version>${protobuf-version}</version>
@@ -111,4 +116,64 @@
 			<scope>runtime</scope>
 		</dependency>
 	</dependencies>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>${basedir}/src/main/resources</directory>
+			</resource>
+			<resource>
+				<directory>${project.build.directory}/generated-resources</directory>
+			</resource>
+		</resources>
+
+		<plugins>
+			<plugin>
+				<groupId>org.scala-tools</groupId>
+				<artifactId>maven-scala-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>unpack</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>${wrapped.groupId}</groupId>
+									<artifactId>akka-actor</artifactId>
+									<version>${akka-version}</version>
+									<type>jar</type>
+									<overWrite>false</overWrite>
+									<outputDirectory>
+										${project.build.directory}/generated-resources/akka/actor
+									</outputDirectory>
+									<includes>*.conf</includes>
+								</artifactItem>
+								<artifactItem>
+									<groupId>${wrapped.groupId}</groupId>
+									<artifactId>${wrapped.artifactId}</artifactId>
+									<version>${akka-version}</version>
+									<type>jar</type>
+									<overWrite>false</overWrite>
+									<outputDirectory>
+										${project.build.directory}/generated-resources/akka/remote
+									</outputDirectory>
+									<includes>*.conf</includes>
+								</artifactItem>
+							</artifactItems>
+							<includes>*.conf</includes>
+							<outputDirectory>${project.build.directory}/jars</outputDirectory>
+							<overWriteReleases>false</overWriteReleases>
+							<overWriteSnapshots>true</overWriteSnapshots>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>

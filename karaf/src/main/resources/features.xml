@@ -1,26 +1,29 @@
 <?xml version="1.0"?>
 <features>
-	<repository>mvn:org.apache.karaf.assemblies.features/standard/${karaf-version}/xml/features</repository>
-	<repository>mvn:org.apache.karaf.assemblies.features/enterprise/${karaf-version}/xml/features</repository>
-	<repository>mvn:org.apache.camel.karaf/apache-camel/${camel-version}/xml/features</repository>
+	<repository>mvn:org.apache.karaf.assemblies.features/standard/2.2.6/xml/features</repository>
+	<repository>mvn:org.apache.karaf.assemblies.features/enterprise/2.2.6/xml/features</repository>
+	<repository>mvn:org.apache.camel.karaf/apache-camel/2.9.2/xml/features</repository>
 
-	<feature name='scala' version='${scala-version}' resolver='(obr)'>
-		<bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.scala-library/${scala-bundle-version}</bundle>
+	<feature name='scala' version='2.9.1' resolver='(obr)'>
+		<bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.scala-library/2.9.1_3</bundle>
 	</feature>
 
-	<feature name='akka' version='${akka-version}' resolver='(obr)'>
+	<feature name='akka' version='2.0.1' resolver='(obr)'>
 		<feature>http</feature>
-		<feature version='${scala-version}'>scala</feature>
+		<feature version='2.9.1'>scala</feature>
 
-		<bundle>mvn:com.tubros.akka/com.typesafe.akka.actor/${akka-version}</bundle>
-		<bundle>mvn:com.tubros.akka/com.typesafe.akka.kernel/${akka-version}</bundle>
-		<bundle>mvn:com.tubros.akka/com.typesafe.akka.remote/${akka-version}</bundle>
-		<bundle>mvn:com.tubros.akka/com.typesafe.akka.slf4j/${akka-version}</bundle>
+		<bundle>mvn:org.jboss.logging/jboss-logging/3.1.1.GA</bundle>
+		<!--
+		<bundle>mvn:com.tubros.akka/com.typesafe.akka.kernel/2.0.1</bundle>
+		-->
+		<bundle>mvn:com.tubros.akka/com.typesafe.akka.remote/2.0.1</bundle>
+		<bundle>mvn:com.tubros.akka/com.typesafe.akka.slf4j/2.0.1</bundle>
 
 	</feature>
 
-	<feature name='akka-example' version='${akka-version}' resolver='(obr)'>
-		<feature version='${akka-version}'>akka</feature>
-		<bundle>mvn:com.tubros.akka/example/${akka-version}</bundle>
+	<feature name='akka-example' version='2.0.1' resolver='(obr)'>
+		<feature version='2.0.1'>akka</feature>
+		<bundle>mvn:com.tubros.akka/example/2.0.1</bundle>
+		<bundle>mvn:com.tubros.akka/example-server/2.0.1</bundle>
 	</feature>
 </features>

@@ -6,7 +6,10 @@ import org.osgi.framework.{
     BundleContext
     }
 
-import com.typesafe.config.ConfigFactory
+import com.typesafe.config.{
+    Config,
+    ConfigFactory
+    }
 
 
 class ServerActivator
@@ -22,7 +25,7 @@ class ServerActivator
 
     override def start (context : BundleContext) : Unit =
     {
-        val config = ConfigFactory.load ();
+        val config = loadConfiguration (context);
 
         system = Some (
             ActorSystem ("OSGi-Example-Server", config, getClass.getClassLoader)
@@ -34,5 +37,22 @@ class ServerActivator
     override def stop (context : BundleContext) : Unit =
     {
         system foreach (_.shutdown ());
+    }
+
+
+    private def loadConfiguration (context : BundleContext) : Config =
+    {
+        // This would be resolved by other means in a real project
+        val configs = List (
+            "/akka/actor/reference.conf",
+            "/akka/remote/reference.conf",
+            "/application.conf"
+            ) map (context.getBundle.getEntry) map {
+                url => 
+
+                ConfigFactory.load (ConfigFactory.parseURL (url));
+            };
+
+        return (configs.reduceLeft ((b, a) => a.withFallback (b)));
     }
 }

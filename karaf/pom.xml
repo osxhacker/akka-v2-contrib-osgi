@@ -11,11 +11,11 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.tubros.akka</groupId>
 	<artifactId>karaf</artifactId>
+	<version>2.0.1</version>
 
 	<name>Akka v2.0 OSGi - Karaf Packaging</name>
 
 	<packaging>pom</packaging>
-	<version>2.0.1</version>
 
 	<dependencies>
 		<dependency>
@@ -50,8 +50,47 @@
 			<groupId>com.tubros.akka</groupId>
 			<artifactId>example</artifactId>
 		</dependency>
+
+		<dependency>
+			<groupId>com.tubros.akka</groupId>
+			<artifactId>example-server</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jboss.logging</groupId>
+			<artifactId>jboss-logging</artifactId>
+			<version>3.1.1.GA</version>
+		</dependency>
 	</dependencies>
 
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.karaf.tooling</groupId>
+                <artifactId>features-maven-plugin</artifactId>
+                <version>2.2.6</version>
+                <executions>
+                    <execution>
+                        <id>create-kar</id>
+                        <goals>
+                            <goal>create-kar</goal>
+                        </goals>
+                        <configuration>
+							<featuresFile>src/main/resources/features.xml</featuresFile>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+	<!--
 	<build>
 		<pluginManagement>
 			<plugins>
@@ -110,4 +149,5 @@
 			</plugin>
 		</plugins>
 	</build>
+	-->
 </project>
