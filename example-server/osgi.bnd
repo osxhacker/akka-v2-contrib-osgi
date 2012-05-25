@@ -1,0 +1,31 @@
+#-----------------------------------------------------------------
+# Use this file to add customized Bnd instructions for the bundle
+#-----------------------------------------------------------------
+
+Bundle-Activator: ${bundle.namespace}.internal.ServerActivator
+
+Require-Bundle: org.apache.servicemix.bundles.scala-library
+
+Import-Package: \
+	akka;version="[2.0,2.1)", \
+	akka.actor;version="[2.0,2.1)", \
+	akka.config;version="[2.0,2.1)", \
+	akka.dispatch;version="[2.0,2.1)", \
+	akka.event;version="[2.0,2.1)", \
+	akka.event.japi;version="[2.0,2.1)", \
+	akka.japi;version="[2.0,2.1)", \
+	akka.jsr166y;version="[2.0,2.1)", \
+	akka.pattern;version="[2.0,2.1)", \
+	akka.routing;version="[2.0,2.1)", \
+	akka.serialization;version="[2.0,2.1)", \
+	akka.util;version="[2.0,2.1)", \
+	akka.util.cps;version="[2.0,2.1)", \
+	akka.util.duration;version="[2.0,2.1)", \
+	com.eaio.util.lang;version="[2.0,2.1)", \
+	com.eaio.uuid;version="[2.0,2.1)", \
+	com.typesafe.config;version="[2.0,2.1)", \
+	com.typesafe.config.impl;version="[2.0,2.1)", \
+	org.jboss.netty.akka.util;version="[2.0,2.1)", \
+	org.jboss.netty.akka.util.internal;version="[2.0,2.1)", \
+	sun.misc, \
+	*

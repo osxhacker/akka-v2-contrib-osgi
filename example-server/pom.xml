@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<parent>
+		<relativePath>../poms/compiled/</relativePath>
+		<groupId>com.tubros.akka.build</groupId>
+		<artifactId>compiled-bundle-settings</artifactId>
+		<version>2.0.1</version>
+	</parent>
+
+	<properties>
+		<bundle.symbolicName>com.tubros.akka.example-server</bundle.symbolicName>
+		<bundle.namespace>com.tubros.akka.example.server</bundle.namespace>
+	</properties>
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.tubros.akka</groupId>
+	<artifactId>example-server</artifactId>
+	<version>2.0.1</version>
+
+	<name>${bundle.symbolicName}</name>
+
+	<packaging>bundle</packaging>
+
+	<dependencies>
+		<dependency>
+			<type>pom</type>
+			<groupId>${parent.groupId}</groupId>
+			<artifactId>provision</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>com.tubros.akka</groupId>
+			<artifactId>com.typesafe.akka.actor</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.tubros.akka</groupId>
+			<artifactId>com.typesafe.akka.remote</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.ops4j.pax.logging</groupId>
+			<artifactId>pax-logging-api</artifactId>
+			<version>1.6.5</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>osgi_R4_core</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>osgi_R4_compendium</artifactId>
+			<optional>true</optional>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>${basedir}/src/main/resources</directory>
+			</resource>
+			<resource>
+				<directory>${project.build.directory}/generated-resources</directory>
+			</resource>
+		</resources>
+
+		<plugins>
+			<plugin>
+				<groupId>org.scala-tools</groupId>
+				<artifactId>maven-scala-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>unpack</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>com.tubros.akka</groupId>
+									<artifactId>com.typesafe.akka.actor</artifactId>
+									<version>${akka-version}</version>
+									<type>jar</type>
+									<overWrite>false</overWrite>
+									<outputDirectory>${project.build.directory}/generated-resources</outputDirectory>
+									<includes>*.conf</includes>
+								</artifactItem>
+							</artifactItems>
+							<includes>*.conf</includes>
+							<outputDirectory>${project.build.directory}/jars</outputDirectory>
+							<overWriteReleases>false</overWriteReleases>
+							<overWriteSnapshots>true</overWriteSnapshots>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
