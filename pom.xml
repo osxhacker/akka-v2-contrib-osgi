@@ -16,7 +16,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.tubros</groupId>
   <artifactId>akka</artifactId>
-  <version>2.0.1</version>
+  <version>2.0.3</version>
 
   <name>com.tubros.akka-actor-osgi (OSGi project)</name>
 
@@ -24,7 +24,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <akka-version>2.0.1</akka-version>
+    <akka-version>2.0.3</akka-version>
     <camel-version>2.9.2</camel-version>
     <commons-codec-version>1.4</commons-codec-version>
     <commons-io-version>1.4</commons-io-version>
@@ -42,6 +42,19 @@
   </properties>
 
   <packaging>pom</packaging>
+
+  <repositories>
+	  <repository>
+		  <id>akka.repository</id>
+		  <name>Akka Maven Repository</name>
+		  <url>http://akka.io/repository/</url>
+	  </repository>
+	  <repository>
+		  <id>typesafe</id>
+		  <name>Typesafe Repository</name>
+		  <url>http://repo.typesafe.com/typesafe/releases/</url>
+	  </repository>
+  </repositories>
 
   <modules>
     <module>poms</module>

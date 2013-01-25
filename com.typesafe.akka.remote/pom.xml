@@ -5,20 +5,20 @@
 		<relativePath>../poms/wrappers/</relativePath>
 		<groupId>com.tubros.akka.build</groupId>
 		<artifactId>wrapper-bundle-settings</artifactId>
-		<version>2.0.1</version>
+		<version>2.0.3</version>
 	</parent>
 
 	<properties>
 		<bundle.symbolicName>com.typesafe.akka.remote</bundle.symbolicName>
 		<wrapped.groupId>com.typesafe.akka</wrapped.groupId>
 		<wrapped.artifactId>akka-remote</wrapped.artifactId>
-		<wrapped.version>2.0.1</wrapped.version>
+		<wrapped.version>2.0.3</wrapped.version>
 	</properties>
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.tubros.akka</groupId>
 	<artifactId>com.typesafe.akka.remote</artifactId>
-	<version>2.0.1</version>
+	<version>2.0.3</version>
 
 	<name>${bundle.symbolicName} ${wrapped.version} [osgi]</name>
 
